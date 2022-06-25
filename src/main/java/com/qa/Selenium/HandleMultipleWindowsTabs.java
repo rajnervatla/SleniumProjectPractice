@@ -35,7 +35,7 @@ public class HandleMultipleWindowsTabs {
 	                driver.switchTo().window(ChildWindow);
 	                WebElement text = driver.findElement(By.id("sampleHeading"));
 	                System.out.println("New Window tab ...Heading of child window is  ::  " + text.getText());
-	               // driver.close();
+	                driver.close();
 	            }
 	                String windowTitle=driver.switchTo().window(mainWindowHandle).getTitle();
 	                System.out.println("Successfully switched to main window..."+windowTitle);

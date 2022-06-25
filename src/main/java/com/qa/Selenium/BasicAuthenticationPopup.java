@@ -23,7 +23,8 @@ public class BasicAuthenticationPopup {
 		// driver=new ChromeDriver();
 		driver.manage().window().maximize();
 
-		driver.get("https://admin:admin@the-internet.herokuapp.com/basic_auth");
+		driver.get("https:www.the-internet.herokuapp.com/basic_auth");
+		//driver.get("https://admin:admin@the-internet.herokuapp.com/basic_auth");
 
 		System.out.println("wow you have successfully completed the basic authentication popup..");
 		driver.close();

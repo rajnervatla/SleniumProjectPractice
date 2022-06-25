@@ -14,10 +14,8 @@ public class ChromeSSLUntrustedCertificates {
 
 		DesiredCapabilities dc = new DesiredCapabilities();
 		dc.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-
-		dc.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
-
-		WebDriverManager.chromedriver().setup();
+        dc.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+        WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver(dc);
 		// driver=new ChromeDriver();
 		driver.manage().window().maximize();
