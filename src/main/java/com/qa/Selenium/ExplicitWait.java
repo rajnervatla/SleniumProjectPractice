@@ -26,8 +26,8 @@ public class ExplicitWait {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,350)");
 
-		// WebDriverWait wait = new WebDriverWait(driver, 5);
-		// wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.cssSelector(".demo-frame")));
+		 WebDriverWait wait = new WebDriverWait(driver, 5);
+		 wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.cssSelector(".demo-frame")));
 
 		WebElement element = driver.findElement(By.linkText("Demos"));
 
