@@ -1,7 +1,6 @@
 package screenshots;
 
 import java.io.File;
-import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -17,7 +16,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Screenshot {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 
 		WebDriver driver = null;
 
@@ -29,30 +28,30 @@ public class Screenshot {
 		options.merge(dc);
 
 		driver = new ChromeDriver(dc);
-		driver.manage().window().maximize();
+		  driver.manage().window().maximize(); ?
+	
+	
+	  driver.manage().window().maximize(); 
 
-		driver.manage().window().maximize();
+	     String URL = "https://www.facebook.com"; 
+	     driver.get(URL); 
 
-		String URL = "https://www.facebook.com";
-		driver.get(URL);
+	     WebElement element = driver.findElement(By.xpath("//input[@name='email']")); 
+	       element.sendKeys("Deepak");
 
-		WebElement element = driver.findElement(By.xpath("//input[@name='email']"));
-		element.sendKeys("Rajkumar");
+	// Convert web driver object into TakeScreenshot. 
+	     TakesScreenshot ts = (TakesScreenshot)driver; 
 
-		// Convert web driver object into TakeScreenshot.
-		TakesScreenshot ts = (TakesScreenshot) driver;
+	// Call getScreenshotAs() method to create image file. 
+	     File scrFile = ts.getScreenshotAs(OutputType.FILE); 
 
-		// Call getScreenshotAs() method to create image file.
-		File scrFile = ts.getScreenshotAs(OutputType.FILE);
+	// Create an object of the file to move the image file to the new destination and pass the file path as an argument. 
+	     File desFile = new File("./Screenshots/facebook.png"); 
 
-		// Create an object of the file to move the image file to the new destination
-		// and pass the file path as an argument.
-		File desFile = new File("./Screenshots/facebook.png");
+	// Call copyFile() method to save the file at destination. 
+	     FileUtils.copyFile(scrFile, desFile); 
+	      System.out.println("Taking Screenshots"); 
 
-		// Call copyFile() method to save the file at destination.
-		FileUtils.copyFile(scrFile, desFile);
-		System.out.println("Taking Screenshots");
-
-		driver.close();
-	}
+	     driver.close(); 
+}
 }
