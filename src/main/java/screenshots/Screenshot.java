@@ -1,6 +1,7 @@
 package screenshots;
 
 import java.io.File;
+import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -28,30 +29,35 @@ public class Screenshot {
 		options.merge(dc);
 
 		driver = new ChromeDriver(dc);
-		  driver.manage().window().maximize(); ?
-	
-	
-	  driver.manage().window().maximize(); 
+		driver.manage().window().maximize();
 
-	     String URL = "https://www.facebook.com"; 
-	     driver.get(URL); 
+		driver.manage().window().maximize();
 
-	     WebElement element = driver.findElement(By.xpath("//input[@name='email']")); 
-	       element.sendKeys("Deepak");
+		String URL = "https://www.facebook.com";
+		driver.get(URL);
 
-	// Convert web driver object into TakeScreenshot. 
-	     TakesScreenshot ts = (TakesScreenshot)driver; 
+		WebElement element = driver.findElement(By.xpath("//input[@name='email']"));
+		element.sendKeys("Deepak");
 
-	// Call getScreenshotAs() method to create image file. 
-	     File scrFile = ts.getScreenshotAs(OutputType.FILE); 
+		// Convert web driver object into TakeScreenshot.
+		TakesScreenshot ts = (TakesScreenshot) driver;
 
-	// Create an object of the file to move the image file to the new destination and pass the file path as an argument. 
-	     File desFile = new File("./Screenshots/facebook.png"); 
+		// Call getScreenshotAs() method to create image file.
+		File scrFile = ts.getScreenshotAs(OutputType.FILE);
 
-	// Call copyFile() method to save the file at destination. 
-	     FileUtils.copyFile(scrFile, desFile); 
-	      System.out.println("Taking Screenshots"); 
+		// Create an object of the file to move the image file to the new destination
+		// and pass the file path as an argument.
+		File desFile = new File("./Screenshots/facebook.png");
 
-	     driver.close(); 
-}
+		// Call copyFile() method to save the file at destination.
+		try {
+			FileUtils.copyFile(scrFile, desFile);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("Taking Screenshots");
+
+		driver.close();
+	}
 }
