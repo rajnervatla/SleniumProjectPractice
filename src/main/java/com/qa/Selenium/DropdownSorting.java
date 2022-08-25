@@ -1,5 +1,6 @@
 package com.qa.Selenium;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -13,7 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DropdownSorting {
-public static void main(String[] args) {
+public static void main(String[] args) throws InterruptedException {
 	WebDriver driver = null;
 
 	WebDriverManager.chromedriver().setup();
@@ -27,17 +28,17 @@ public static void main(String[] args) {
 	// driver=new ChromeDriver();
 	driver.manage().window().maximize();
 
-	driver.get("http://www.leafground.com/pages/Dropdown.html");
-	WebElement firstdropdown=driver.findElement(By.xpath("//select[@id='dropdown1']"));
+	driver.get("https://demo.automationtesting.in/Register.html");
+	WebElement firstdropdown=driver.findElement(By.xpath("//*[@id='Skills']"));
+	Thread.sleep(5000);
 	
 	Select select=new Select(firstdropdown);
 	
-	List<WebElement> options1 =driver.findElements(By.tagName("option"));
+	List<WebElement> lisop=select.getOptions();
 	
-	
-	for(WebElement opts:options1)
+	for(WebElement e:lisop)
 	{
-		System.out.println(opts.getText());
+		System.out.println(e.getText());
 	}
 }
 }

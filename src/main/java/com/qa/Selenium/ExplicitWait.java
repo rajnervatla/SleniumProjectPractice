@@ -18,7 +18,7 @@ public class ExplicitWait {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("https://www.naukri.com/");
+		//driver.get("https://www.naukri.com/");
 
 		driver.get("https://jqueryui.com/tooltip/");
 		Thread.sleep(10000);
@@ -27,7 +27,7 @@ public class ExplicitWait {
 		js.executeScript("window.scrollBy(0,350)");
 
 		 WebDriverWait wait = new WebDriverWait(driver, 5);
-		 wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.cssSelector(".demo-frame")));
+		 wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.xpath("//*[@class='demo-frame']")));
 
 		WebElement element = driver.findElement(By.linkText("Demos"));
 
